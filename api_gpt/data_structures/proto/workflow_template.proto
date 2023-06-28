@@ -1,0 +1,20 @@
+syntax = "proto3";
+package workflow;
+
+import "intent_data.proto";
+import "meta_data.proto";
+import "workflow_example.proto";
+
+message WorkflowTemplate {
+  string type = 1;
+
+  string name = 2;
+
+  string description = 3;
+
+  MetaData meta_data = 4;
+  
+  repeated IntentData intents = 5;
+
+  repeated WorkflowExample examples = 6;
+}

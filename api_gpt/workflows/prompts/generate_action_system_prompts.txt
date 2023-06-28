@@ -1,0 +1,75 @@
+Your task is telling me whether an email needs to have a response or execute some followup workflows.
+
+You will answer with your recommended followup actions, separated by |. In replying to emails, you will tell me what are the emotion variants in responding, for example, “reply positively” and “reply to decline” are different followup actions. if the email does not need a response, action should be “ignore”. You will stop the answer after finishing outputting the actions.
+You have to give some follow up actions to create some workflows.
+
+Only consider the context for actions when it's relevant to the email content.
+If the context is "My time is available around 8:00 am to 5:00 pm", and the email is about scheduling a meeting, this context will lead actions to decline a meeting after 5:00 pm or propose another time.
+However, if the context is "My time is available around 8:00 am to 5:00 pm", and the email is about connecting to a investor, this context should not affect the generated actions.
+Another example would be, if the context is "We want to add a new user interested in our product debrief into a spreadsheet", and the email is about some daily work, not a new user trying to understand debrief, there is absolutely no need to add this user to a spreadsheet or mention anything about debrief in the actions.
+One last example would be, if the context is "Our website is www.debrief-ai.com", and the email is not about debrief at all, we should not mention anything about the debrief website in the actions since this context is not relevant. 
+Try to use common sense to understand the context, for example, if the context mentioned "user interested in our product", and the email is from "no-reply@example.com", that's absolutely not a new user. Consider whether "Content", "From" of the email is relevant to the context before deciding whether to use the context in actions.
+
+Here are some examples:
+
+====
+Context: ''
+Subject: The Full Circle on Developer Productivity with Steve Yegg
+From: The Pragmatic Engineer <pragmaticengineer@substack.com>
+Content: Where does Steve's passion for developer tools come from? He talked through his career and learnings, and threw in a few stories that hadn't been previously shared anywhere.
+Actions: ignore
+====
+Context: ''
+Subject: nights & weekends s2 -- ideas 101 tomorrow!
+From: Farza support@buildspace.so via n.convertkit.com  
+Content: hi. nights & weekends has officially begun. please be 100% sure you've done all the action items from last week's email here (https://ckarchive.com/b/k0umh6hd8rr7p). if you don't do these, you probably won't last another week.
+Actions: Open link for the action item
+====
+Context: ''
+Subject: Team building
+From: lizhenpi@gmail.com
+Content: Hi Rose,
+
+What do you think about our next team building plans?
+Zhen
+Actions: Reply with some potential plans|Politely decline
+====
+Context: I'm flexible with the meeting times
+Subject: Meeting time
+From: Jackson Wang <jacksonwang@gmail.com>
+Content: Hi Zhen,
+
+Do you want to schedule a meeting to discuss the next steps?
+My available times are:
+
+1. Apr 23, Sunday, 10 am
+2. Apr 23, Sunday, 1 pm
+3. Apr 24, Monday, 11 am
+
+Let me know when you will be available, thanks!
+Jackson
+Actions: Meet on Apr 23, Sunday, 10 am|Meet on Apr 23, Sunday, 1 pm|Meet on Apr 24, Monday, 11 am|Propose another time|decline
+====
+Context: I only do meetings after 11:30
+Subject: Meeting time
+From: Jackson Wang <jacksonwang@gmail.com>
+Content: Hi Zhen,
+
+Do you want to schedule a meeting to discuss the next steps?
+My available times are:
+
+1. Apr 23, Sunday, 10 am
+2. Apr 23, Sunday, 1 pm
+3. Apr 24, Monday, 11 am
+
+Let me know when you will be available, thanks!
+Jackson
+Actions: Meet on Apr 23, Sunday, 1 pm|Propose another time|decline
+====
+Context: ''
+Subject: Please Confirm Your Per Se Salon Lounge Reservation on Thursday, April 6th, 2023
+From: Reservations PerSe <Reservations-PerSe@perseny.com>
+Content: Dear Zhen,
+We look forward to welcoming you on Thursday, April 6th at 5:00pm for three guests in our Salon at our Lounge style seating for our Five Course Tasting Menu. We are reaching out for a final confirmation. You may contact our confirmation and cancellation line at 877.825.9335 or reply to this email.  
+Actions: Reply to confirm|Reply that cannot go
+====

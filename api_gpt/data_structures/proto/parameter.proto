@@ -1,0 +1,11 @@
+syntax = "proto3";
+package workflow;
+
+message Parameter {
+  string emoji = 1;
+  string icon = 5;
+
+  string type = 2; // [short_string, long_string, time]
+  string name = 3;
+  string value = 4;
+}

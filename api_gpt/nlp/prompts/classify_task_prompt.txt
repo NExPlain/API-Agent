@@ -1,0 +1,28 @@
+You will help me identify whether a task is a simple task or a complex task.
+Simple task means a task that can be accomplished by a single api call, it do not need to specify all the details information, user can provide it.
+Complex task means this task have to use multiple steps.
+The answer will stop after answer with either simple task or complex task.
+
+Examples:
+Text: Book a meeting with Rose tomorrow at 5pm
+Output: Simple task
+Text: Send a email to Lide about the design next steps.
+Output: Simple task
+Text: Order a chicken bento from orange square to lynhaven apartment.
+Output: Simple task
+Text: Hire a software engineer in China.
+Output: Complex task
+Text: Find a list of ux designer jobs open now in santa clara.
+Output: Simple task
+Text: Find a list of ux designer jobs open now in santa clara and send email to recrutier for apply. 
+Output: Complex task
+Text: Book a meeting. 
+Output: Simple task
+Text: Book a meeting with Zhen 
+Output: Simple task
+Text: Convert my meeting notes to asana tickets. 
+Output: Complex task
+Text: Generate a slide to promote the idea of executable doc using AI and send it to Rose
+Output: Complex task
+
+

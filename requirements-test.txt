@@ -1,0 +1,6 @@
+flask-debugtoolbar
+flask-shell-ipython
+ipdb
+pytest-flask
+python-dotenv
+responses

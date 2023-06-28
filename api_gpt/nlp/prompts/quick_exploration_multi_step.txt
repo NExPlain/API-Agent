@@ -1,0 +1,8 @@
+I want to {text}, output the relevant software or website names joined by ',' for a task.
+Start the answer with “Softwares: ”, output three names, stop the answer after the last names. Find the relevant softwares.
+
+===
+Examples:
+Task: I want to book a meeting
+Softwares: Google Calendar, Outlook, Calendly
+===

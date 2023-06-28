@@ -1,0 +1,25 @@
+syntax = "proto3";
+package workflow;
+
+import "intent_input.proto";
+import "intent_output.proto";
+import "meta_data.proto";
+
+message IntentTemplate {
+  string type = 1;
+  string name = 2;
+
+  MetaData meta_data = 3;
+
+  repeated IntentInput inputs = 4;
+
+  repeated IntentOutput outputs = 5;
+
+  string create_timestamp = 6;
+
+  string oauth_endpoint = 7;
+
+  string execute_endpoint = 8;
+
+  string app_name = 9;
+}

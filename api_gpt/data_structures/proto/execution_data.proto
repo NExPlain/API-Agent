@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+package workflow;
+
+import "intent_output.proto";
+
+message ExecutionResult {
+  bool is_success = 1;
+  int32 error_code = 2;
+  string error_message = 3;
+
+  repeated IntentOutput outputs = 4;
+
+  string display_link = 5; // www.gmail.com/myaccount
+  string display_name = 6; // View in gmail
+}
+
+message ExecutionData {
+  bool is_executing = 1;
+  int32 execution_time = 2;
+  string executor_id = 3;
+    
+  bool is_finished = 4;
+  ExecutionResult result = 5;
+}

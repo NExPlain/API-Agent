@@ -1,0 +1,10 @@
+syntax = "proto3";
+package workflow;
+
+import "workflow.proto";
+
+message WorkflowExample {
+  string trigger_string = 1;
+
+  WorkflowData workflow = 2;
+}
